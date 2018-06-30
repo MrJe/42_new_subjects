@@ -1,0 +1,51 @@
+Assignment name  : go_capture_stone
+Expected files   : *.c *.h
+Allowed functions: write open read close
+--------------------------------------------------------------------------------
+
+Écrire un programme qui prend en paramètres : une grille de go au format 9*9 et
+les coordonnées x y d'un des points. Votre programme doit afficher sur la sortie
+standard l'état de ce point (EMPTY, ALIVE, DEAD) suivi d'un caractère newline.
+
+Si la case contient le caractère '.', l'état est EMPTY;
+Sinon, si une case voisine est EMPTY, l'état est ALIVE;
+Sinon, si des caractères voisins sont identiques au caractère courant, et qu'au
+moins un de ces voisins est ALIVE, l'état est ALIVE;
+Sinon, l'état est DEAD.
+
+La grille ne contient que les caractères '.', 'x' et 'o', séparés par un ' '.
+Si un paramètre est manquant ou n'est pas valide, votre programme affiche error
+suivi d'un caractère newline sur la sortie d'erreur.
+
+Attention, les diagonales ne comptent pas.
+
+---------
+$> cat -e grille.go
+. o . . o x x x o$
+o x o . . o o o .$
+o o . . . . . . .$
+o . . . o . . . .$
+. . . o x o . . .$
+. . . o x x o . .$
+. o . . o x x o .$
+. x o . . o x x o$
+. o . . . . o x o$
+$> gcc -Wall -Werror -Wextra *.c
+$> ./a.out | cat -e
+error$
+$> ./a.out grille.go 10 10 | cat -e
+error$
+$> ./a.out grille.go 1 1 | cat -e
+EMPTY$
+$> ./a.out grille.go 1 2 | cat -e
+ALIVE$
+$> ./a.out grille.go 6 1 | cat -e
+DEAD$
+$> ./a.out grille.go 2 2 | cat -e
+DEAD$
+$> ./a.out grille.go 1 3 | cat -e
+ALIVE$
+$> ./a.out grille.go 5 5 | cat -e
+DEAD$
+$> ./a.out grille.go 2 8 | cat -e
+ALIVE$

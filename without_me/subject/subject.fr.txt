@@ -1,0 +1,21 @@
+Assignment name  : without_me
+Expected files   : main.c
+Allowed functions: putchar toupper
+--------------------------------------------------------------------------------
+
+Écrire un programme qui prend un nombre variable de paramètre. Les paramètres
+sont alors affichés les uns à la suite des autres, en majuscule, sur la sortie
+standard. Vous terminerez l'affichage par un caractère newline.
+
+/!\ Vous ne devez déclarer ni variable, ni fonction.
+/!\ Votre main doit faire au maximum 5 lignes et être à la norme.
+/!\ Les defines sont interdits.
+
+---------
+$> gcc -Wall -Werror -Wextra main.c
+$> ./a.out | cat -e
+$
+$> ./a.out "Hello World" | cat -e
+HELLO WORLD$
+$> ./a.out "Obie Trice" "! " "Real name" ", " "no gimmicks" | cat -e
+OBIE TRICE! REAL NAME, NO GIMMICKS$
